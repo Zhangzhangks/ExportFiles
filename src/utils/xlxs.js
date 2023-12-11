@@ -1,3 +1,5 @@
+import fs from 'file-saver'
+import * as XLSX from 'xlsx'
 /* 读取文件 */
 export const readFile = (file) => {
   return new Promise(resolve => {
@@ -9,10 +11,8 @@ export const readFile = (file) => {
   })
 }
 
-// 导入excel
+// 导初excel
 
-import fs from 'file-saver'
-import * as XLSX from 'xlsx'
 export function xlsx(json, fields, filename = '.xlsx') {//导出xlsx
   json.forEach(item => {
     for (let i in item) {
@@ -22,11 +22,6 @@ export function xlsx(json, fields, filename = '.xlsx') {//导出xlsx
       delete item[i]; //删除原先的对象属性
     }
   })
-
-
-
-
-
   let sheetName = filename //excel的文件名称
   let wb = XLSX.utils.book_new()  //工作簿对象包含一SheetNames数组，以及一个表对象映射表名称到表对象。XLSX.utils.book_new实用函数创建一个新的工作簿对象。
   let ws = XLSX.utils.json_to_sheet(json, { header: Object.values(fields) }) //将JS对象数组转换为工作表。
