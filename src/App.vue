@@ -1,13 +1,27 @@
 <template>
   <div>
-    <imagePreview></imagePreview>
+    <exportexcel></exportexcel>
     <importexcel></importexcel>
+    <wordcompoent></wordcompoent>
   </div>
+
+
+  <!-- <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" /> -->
 </template>
 
 <script setup>
-import imagePreview from './components/Xlxs.vue';
+import wordcompoent from './components/word.vue';
+import exportexcel from './components/exportexce.vue';
 import importexcel from './components/importexcel.vue';
+import { onMounted, ref } from 'vue'
+
+
+
 </script>
 
-<style lang="scss" scoped></style>
+<style  scoped>
+img {
+  width: "24px";
+  height: "24px"
+}
+</style>

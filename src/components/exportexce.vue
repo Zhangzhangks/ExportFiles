@@ -81,7 +81,7 @@ export default {
             // this.jsonData是要导出的数据内容（表格里的内容），
             // this.listHander对应要导出内容的表头
             // 学生：指向的是excel文件名
-            xlsx(this.jsonData, this.listHander, '学生')
+            xlsx(this.jsonData, this.listHander,)
         }
     },
 }

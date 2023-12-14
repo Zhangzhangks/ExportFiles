@@ -11,7 +11,7 @@ export const readFile = (file) => {
   })
 }
 
-// 导初excel
+// 导出excel
 
 export function xlsx(json, fields, filename = '.xlsx') {//导出xlsx
   json.forEach(item => {
@@ -45,4 +45,31 @@ const s2ab = s => {
     for (var i = 0; i != s.length; ++i) buf[i] = s.charCodeAt(i) & 0xFF;
     return buf;
   }
+}
+
+
+
+// 导出Word
+export const exportToWord = (id, name) => {
+  // 获取选中区域Html
+  const dom = document.getElementById(id)
+  const content = dom.innerHTML;
+  const convertedContent = convertToWordDocument(content);
+
+  // Html类型数据 转换为 文件类型数据
+  const blob = new Blob([convertedContent], { type: 'application/msword' });
+  console.log(blob);
+  // 下载Word文档
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = name + '.doc' || 'exported.doc';
+  link.click();
+}
+
+//完善Html格式
+const convertToWordDocument = (content) => {
+  const header = `<!DOCTYPE html><html><head><meta charset='utf-8'><title>Exported Document</title></head><body>`;
+  const footer = `</body></html>`;
+
+  return `${header}${content}${footer}`;
 }

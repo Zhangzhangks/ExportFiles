@@ -8,11 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "countup.js": "^2.8.0",
     "element-plus": "^2.4.0",
     "file-saver": "^2.0.5",
-    "js-xlsx": "^0.8.22",
-    "v-viewer": "^3.0.11",
     "vue": "^3.3.4",
+    "vue-countup-v2": "^4.0.0",
     "xlsx": "^0.17.0"
   },
   "devDependencies": {
